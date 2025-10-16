@@ -1,4 +1,6 @@
-package be.vives.ti;
+package be.vives.ti.ui;
+
+import be.vives.ti.service.Bibliotheek;
 
 import java.util.Scanner;
 

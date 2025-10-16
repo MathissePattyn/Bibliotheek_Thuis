@@ -1,6 +1,8 @@
-package be.vives.ti;
+package be.vives.ti.model;
 
-import java.util.ArrayList;
+import be.vives.ti.service.Bibliotheek;
+import be.vives.ti.ui.User;
+
 import java.util.Scanner;
 
 public class Lid extends User {

@@ -1,8 +1,12 @@
-package be.vives.ti;
+package be.vives.ti.service;
+
+import be.vives.ti.exceptions.BoekNietGevondenException;
+import be.vives.ti.ui.Clerk;
+import be.vives.ti.model.Boek;
+import be.vives.ti.model.Lid;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 
 public class Bibliotheek {
     private ArrayList<Lid> leden;

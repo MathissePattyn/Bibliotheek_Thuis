@@ -1,8 +1,10 @@
-package be.vives.ti;
+package be.vives.ti.ui;
+
+import be.vives.ti.service.Bibliotheek;
 
 import java.util.Scanner;
 
-public class Clerk extends User{
+public class Clerk extends User {
 
     public Clerk(String naam, Scanner scanner) {
         super(naam, scanner);
