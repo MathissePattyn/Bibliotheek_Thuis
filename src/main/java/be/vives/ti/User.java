@@ -3,10 +3,12 @@ package be.vives.ti;
 import java.util.Scanner;
 
 public abstract class User {
+    protected Scanner scanner;
     private String naam;
 
-    public User(String naam) {
+    public User(String naam, Scanner scanner) {
         this.naam = naam;
+        this.scanner = scanner;
     }
 
     public void setNaam(String naam) {
@@ -17,7 +19,7 @@ public abstract class User {
         return naam;
     }
 
-    public abstract void showMenu(Bibliotheek bib, Scanner scanner);
+    public abstract void showMenu(Bibliotheek bib);
 }
 
 

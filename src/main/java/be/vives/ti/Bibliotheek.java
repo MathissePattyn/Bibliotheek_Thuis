@@ -22,9 +22,9 @@ public class Bibliotheek {
             Boek boek = OpenLibraryService.haalBoekOpViaISBN(isbn);
             if(getIndexVanBoek(isbn) == -1) {
                 boeken.add(boek);
-                System.out.println("Boek toegevoegd: " + boek.getTitel());
+                System.out.println("Boek toegevoegd: " + boek.getTitel() + "\n");
             } else {
-                System.out.println("Boek zit al in de lijst");
+                System.out.println("Boek zit al in de lijst" + "\n");
             }
         } catch (BoekNietGevondenException e) {
             System.out.println(e.getMessage());
@@ -42,7 +42,7 @@ public class Bibliotheek {
 
     public void verwijderBoekViaISBN(String isbn){
         if(getIndexVanBoek(isbn) == -1){
-            System.out.println("Boek niet gevonden");
+            System.out.println("Boek niet gevonden" + "\n");
         } else {
             boeken.remove(getIndexVanBoek(isbn));
         }
@@ -52,15 +52,28 @@ public class Bibliotheek {
         return leden;
     }
 
-    public ArrayList<Clerk> getWinkelBedienden() {
-        return winkelBedienden;
+    public ArrayList<Clerk> getWinkelBedienden() {return winkelBedienden;}
+
+    public ArrayList<Boek> getBoeken() {return boeken;}
+
+    public String getDetailsLijstVanBoeken(){
+        StringBuilder sb = new StringBuilder();
+        for(int i=0;i<boeken.size();i++){
+            Boek boek = boeken.get(i);
+            sb.append((i + 1)).append(": ").append(boek.getTitel()).append(", isbn: ").append(boek.getISBN()).append("\n");
+        }
+        return sb.toString();
     }
 
-    public ArrayList<Boek> getBoeken() {
-        return boeken;
+    public String getDetailsVanBoek(String isbn){
+        StringBuilder sb = new StringBuilder();
+        if(getIndexVanBoek(isbn) == -1){
+            return "Boek niet gevonden" + "\n";
+        } else{
+            sb.append(boeken.get(getIndexVanBoek(isbn)).getTitel());
+        }
+        return sb.toString();
     }
 
-    public HashMap<Lid, ArrayList<Boek>> getLidMetBoeken() {
-        return lidMetBoeken;
-    }
+    public HashMap<Lid, ArrayList<Boek>> getLidMetBoeken() {return lidMetBoeken;}
 }

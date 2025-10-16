@@ -6,13 +6,13 @@ import java.util.Scanner;
 public class Lid extends User {
     private int lidNummer;
 
-    public Lid(int lidNummer, String naam) {
-        super(naam);
+    public Lid(int lidNummer, String naam, Scanner scanner) {
+        super(naam, scanner);
         this.lidNummer = lidNummer;
     }
 
     @Override
-    public void showMenu(Bibliotheek bib, Scanner scanner) {
+    public void showMenu(Bibliotheek bib) {
 
     }
 }

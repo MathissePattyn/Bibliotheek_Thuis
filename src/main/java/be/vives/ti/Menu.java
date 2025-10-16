@@ -31,15 +31,15 @@ public class Menu {
 
             //Code voor keuze
             if(keuze == 1){
-                System.out.println("U wordt aangemeld als Clerk");
-                user = new Clerk("TestClerk1");
-                user.showMenu(bib, scanner);
+                System.out.println("U wordt aangemeld als Clerk"  + "\n");
+                user = new Clerk("TestClerk1", scanner);
+                user.showMenu(bib);
             } else if(keuze == 2){
 
             } else if(keuze == 3) {
 
             }else {
-                System.out.println("Gelieve een geldige keuze te maken");
+                System.out.println("Gelieve een geldige keuze te maken" + "\n");
                 inlogMenu();
             }
         }
