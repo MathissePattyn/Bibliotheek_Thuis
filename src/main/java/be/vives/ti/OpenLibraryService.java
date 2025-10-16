@@ -1,4 +1,5 @@
 package be.vives.ti;
+import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -11,10 +12,10 @@ import java.util.List;
 
 public class OpenLibraryService {
 
-    public static Boek haalBoekOpViaISBN(String isbn){
+    public static Boek haalBoekOpViaISBN(String isbn) throws BoekNietGevondenException {
         try {
             String url = "https://openlibrary.org/isbn/" + isbn + ".json";
-            System.out.println("Requesting URL: " + url);
+//            System.out.println("Requesting URL: " + url);
 
             HttpClient client = HttpClient.newBuilder()
                     .followRedirects(HttpClient.Redirect.ALWAYS)
@@ -26,7 +27,7 @@ public class OpenLibraryService {
                     .build();
 
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            System.out.println("HTTP status code: " + response.statusCode());
+//            System.out.println("HTTP status code: " + response.statusCode());
 //            System.out.println("Response body: " + response.body());
 
             JSONObject json = new JSONObject(response.body());
@@ -49,9 +50,8 @@ public class OpenLibraryService {
 
             Boek boek = new Boek(Isbn, auteurs,titel,publicatieJaar,aantalPaginas);
             return boek;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+        } catch (IOException | InterruptedException e) {
+            throw new BoekNietGevondenException("Fout bij ophalen isbn: "+ e.getMessage());
         }
     }
 

@@ -17,15 +17,34 @@ public class Bibliotheek {
         this.winkelBedienden = new ArrayList<>();
     }
 
-    public void addBoekViaIsbn(String isbn){boeken.add(OpenLibraryService.haalBoekOpViaISBN(isbn));}
+    public void addBoekViaIsbn(String isbn){
+        try {
+            Boek boek = OpenLibraryService.haalBoekOpViaISBN(isbn);
+            if(getIndexVanBoek(isbn) == -1) {
+                boeken.add(boek);
+                System.out.println("Boek toegevoegd: " + boek.getTitel());
+            } else {
+                System.out.println("Boek zit al in de lijst");
+            }
+        } catch (BoekNietGevondenException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public int getIndexVanBoek(String isbn){
+        for(int i=0; i<boeken.size();i++){
+            if(boeken.get(i).getISBN().equals(isbn)){
+                return i;
+            }
+        }
+        return -1;
+    }
 
     public void verwijderBoekViaISBN(String isbn){
-        Iterator<Boek> it = boeken.iterator();
-        while(it.hasNext()){
-            Boek boek = it.next();
-            if(boek.getISBN().equals(isbn)){
-                it.remove();
-            }
+        if(getIndexVanBoek(isbn) == -1){
+            System.out.println("Boek niet gevonden");
+        } else {
+            boeken.remove(getIndexVanBoek(isbn));
         }
     }
 
