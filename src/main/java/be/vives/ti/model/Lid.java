@@ -6,15 +6,19 @@ import be.vives.ti.ui.User;
 import java.util.Scanner;
 
 public class Lid extends User {
-    private int lidNummer;
+    private static int lidCounter = 0;
 
-    public Lid(int lidNummer, String naam, Scanner scanner) {
-        super(naam, scanner);
-        this.lidNummer = lidNummer;
+    public Lid(String naam, Scanner scanner) {
+        super(naam, scanner,++lidCounter);
     }
 
     @Override
     public void showMenu(Bibliotheek bib) {
+
+    }
+
+    @Override
+    public void maakUserAan() {
 
     }
 }

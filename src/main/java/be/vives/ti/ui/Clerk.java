@@ -6,8 +6,9 @@ import java.util.Scanner;
 
 public class Clerk extends User {
 
+    private static int clerkCounter = 0;
     public Clerk(String naam, Scanner scanner) {
-        super(naam, scanner);
+        super(naam, scanner, ++clerkCounter);
     }
 
     @Override
@@ -35,6 +36,11 @@ public class Clerk extends User {
                 zoekBoek(bib);
             }
         }
+    }
+
+    @Override
+    public void maakUserAan() {
+
     }
 
     private void verwijderBoek(Bibliotheek bib) {

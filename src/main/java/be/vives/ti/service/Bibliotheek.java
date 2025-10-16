@@ -52,12 +52,6 @@ public class Bibliotheek {
         }
     }
 
-    public ArrayList<Lid> getLeden() {
-        return leden;
-    }
-
-    public ArrayList<Clerk> getWinkelBedienden() {return winkelBedienden;}
-
     public ArrayList<Boek> getBoeken() {return boeken;}
 
     public String getDetailsLijstVanBoeken(){
@@ -78,6 +72,12 @@ public class Bibliotheek {
         }
         return sb.toString();
     }
+
+    public ArrayList<Lid> getLeden() {
+        return leden;
+    }
+
+    public ArrayList<Clerk> getWinkelBedienden() {return winkelBedienden;}
 
     public HashMap<Lid, ArrayList<Boek>> getLidMetBoeken() {return lidMetBoeken;}
 }
