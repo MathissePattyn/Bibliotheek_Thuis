@@ -1,6 +1,7 @@
-package be.vives.ti.ui;
+package be.vives.ti.model;
 
 import be.vives.ti.service.Bibliotheek;
+import be.vives.ti.ui.ClerkMenu;
 
 import java.util.Scanner;
 
@@ -13,6 +14,7 @@ public class Clerk extends User {
 
     @Override
     public void showMenu(Bibliotheek bib) {
+//        new ClerkMenu(this, bib).showMenu();
         int keuze = 0;
         while(keuze ==0) {
             System.out.println("--Menu van " + super.getNaam() + "--");

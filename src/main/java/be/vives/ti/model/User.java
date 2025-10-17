@@ -1,4 +1,4 @@
-package be.vives.ti.ui;
+package be.vives.ti.model;
 
 import be.vives.ti.service.Bibliotheek;
 

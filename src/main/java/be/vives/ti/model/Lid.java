@@ -1,7 +1,6 @@
 package be.vives.ti.model;
 
 import be.vives.ti.service.Bibliotheek;
-import be.vives.ti.ui.User;
 
 import java.util.Scanner;
 

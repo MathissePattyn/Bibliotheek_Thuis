@@ -1,7 +1,7 @@
 package be.vives.ti.service;
 
 import be.vives.ti.exceptions.BoekNietGevondenException;
-import be.vives.ti.ui.Clerk;
+import be.vives.ti.model.Clerk;
 import be.vives.ti.model.Boek;
 import be.vives.ti.model.Lid;
 

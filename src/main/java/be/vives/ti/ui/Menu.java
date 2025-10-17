@@ -1,5 +1,7 @@
 package be.vives.ti.ui;
 
+import be.vives.ti.model.Clerk;
+import be.vives.ti.model.User;
 import be.vives.ti.service.Bibliotheek;
 
 import java.util.ArrayList;
