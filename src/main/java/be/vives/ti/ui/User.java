@@ -8,11 +8,13 @@ public abstract class User {
     protected Scanner scanner;
     private String naam;
     private int id;
+    private String wachtwoord;
 
-    public User(String naam, Scanner scanner, int id) {
+    public User(String naam, Scanner scanner, int id, String wachtwoord) {
         this.naam = naam;
         this.scanner = scanner;
         this.id = id;
+        this.wachtwoord = wachtwoord;
     }
 
     public int getId() {
@@ -33,7 +35,7 @@ public abstract class User {
 
     public abstract void showMenu(Bibliotheek bib);
 
-    public abstract void maakUserAan();
+    public abstract User maakUserAan(Bibliotheek bib);
 }
 
 

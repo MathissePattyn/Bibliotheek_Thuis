@@ -7,8 +7,8 @@ import java.util.Scanner;
 public class Clerk extends User {
 
     private static int clerkCounter = 0;
-    public Clerk(String naam, Scanner scanner) {
-        super(naam, scanner, ++clerkCounter);
+    public Clerk(String naam, Scanner scanner, String wachtwoord) {
+        super(naam, scanner, ++clerkCounter, wachtwoord);
     }
 
     @Override
@@ -39,11 +39,22 @@ public class Clerk extends User {
     }
 
     @Override
-    public void maakUserAan() {
-
+    public User maakUserAan(Bibliotheek bib) {
+        System.out.println("Gelieve een GebruikersNaam in te geven: ");
+        String naam = scanner.nextLine();
+        System.out.println("Gelieve een wachtwoord in te geven");
+        String wachtwoord = scanner.nextLine();
+        if(!naam.isBlank() && !wachtwoord.isBlank()) {
+            return new Clerk(naam,scanner, wachtwoord);
+        } else{
+            System.out.println("Gelieve geldige gebruikersnaam en wachtwoord in te geven, probeer opnieuw");
+            maakUserAan(bib);
+        }
+        return null;
     }
 
-    private void verwijderBoek(Bibliotheek bib) {
+
+    protected void verwijderBoek(Bibliotheek bib) {
         System.out.println("Gelieve een isbn nummer in te geven");
         String isbn = scanner.nextLine();
         bib.verwijderBoekViaISBN(isbn);
@@ -51,14 +62,14 @@ public class Clerk extends User {
     }
 
 
-    private void voegBoekToe(Bibliotheek bib) {
+    protected void voegBoekToe(Bibliotheek bib) {
         System.out.println("Gelieve een isbn nummer in te geven");
         String isbn = scanner.nextLine();
         bib.addBoekViaIsbn(isbn);
         showMenu(bib);
     }
 
-    private void zoekBoek(Bibliotheek bib){
+    protected void zoekBoek(Bibliotheek bib){
         System.out.println("Gelieve een isbn nummer in te geven");
         String isbn = scanner.nextLine();
         System.out.println(bib.getDetailsVanBoek(isbn));
