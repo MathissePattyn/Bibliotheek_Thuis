@@ -36,7 +36,8 @@ public class Menu {
 
             //Code voor keuze
             if(keuze == 1){
-                keuzeMenuClerk();
+//                keuzeMenuClerk();
+
                 keuze = scanner.nextInt();
 
 
@@ -55,32 +56,32 @@ public class Menu {
 
     }
 
-    private void keuzeMenuClerk() {
-        System.out.println("--Keuze menu van de Clerk--");
-        int keuze = 0;
-        int idKeuzes = 1;
-        ArrayList<Clerk> winkelbedienden = bib.getWinkelBedienden();
-        if(winkelbedienden.size()==0) {
-            System.out.println("1. Gebruiker Aanmaken");
-            System.out.println("2. Vorige menu");
-            System.out.println("3. Afsluiten");
-            keuze = scanner.nextInt();
-        } else{
-            for (int i = 0; i < winkelbedienden.size(); i++) {
-                System.out.println(idKeuzes + ". " + winkelbedienden.get(i).getNaam());
-                idKeuzes++;
-            }
-            System.out.println(idKeuzes + ". Vorige menu");
-            idKeuzes++;
-            System.out.println(idKeuzes + ". Afsluiten");
-            keuze = scanner.nextInt();
-        }
-    }
+//    private void keuzeMenuClerk() {
+//        System.out.println("--Keuze menu van de Clerk--");
+//        int keuze = 0;
+//        int idKeuzes = 1;
+//        ArrayList<Clerk> winkelbedienden = bib.getWinkelBedienden();
+//        if(winkelbedienden.size()==0) {
+//            System.out.println("1. Gebruiker Aanmaken");
+//            System.out.println("2. Vorige menu");
+//            System.out.println("3. Afsluiten");
+//            keuze = scanner.nextInt();
+//        } else{
+//            for (int i = 0; i < winkelbedienden.size(); i++) {
+//                System.out.println(idKeuzes + ". " + winkelbedienden.get(i).getNaam());
+//                idKeuzes++;
+//            }
+//            System.out.println(idKeuzes + ". Vorige menu");
+//            idKeuzes++;
+//            System.out.println(idKeuzes + ". Afsluiten");
+//            keuze = scanner.nextInt();
+//        }
+//    }
 
     public void keuzeMenuLid() {
     }
 
-    public Clerk maakEenClerkAan(){
-
-    }
+//    public Clerk maakEenClerkAan(){
+//
+//    }
 }
