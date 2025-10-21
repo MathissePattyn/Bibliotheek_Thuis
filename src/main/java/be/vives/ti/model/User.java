@@ -31,9 +31,6 @@ public abstract class User {
         return naam;
     }
 
-//    public abstract void showMenu(Bibliotheek bib);
-//
-//    public abstract User maakUserAan(Bibliotheek bib);
 }
 
 

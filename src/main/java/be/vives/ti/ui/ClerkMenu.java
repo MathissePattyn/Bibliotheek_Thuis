@@ -1,10 +1,8 @@
 package be.vives.ti.ui;
 
 import be.vives.ti.model.Clerk;
-import be.vives.ti.model.User;
 import be.vives.ti.service.Bibliotheek;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ClerkMenu extends UserMenu{
@@ -20,7 +18,7 @@ public class ClerkMenu extends UserMenu{
             System.out.println("1. Toon alle aanwezige boeken");
             System.out.println("2. Voeg een boek toe obv isbn");
             System.out.println("3. Verwijder een boek obv isbn");
-            System.out.println("4. Zoek een boek obv isbn");
+            System.out.println("4. Krijg details van een boek obv isbn");
             System.out.println("5. Vorige menu");
             System.out.println("6. Afsluiten");
             keuze = scanner.nextInt();
@@ -35,9 +33,19 @@ public class ClerkMenu extends UserMenu{
                 addBoek();
                 showMenu();
             } else if(keuze == 3){
-//                verwijderBoek(bib);
+                verwijderBoek();
+                showMenu();
             } else if(keuze == 4){
-//                zoekBoek(bib);
+                getDetailsBoek();
+                showMenu();
+            } else if(keuze==5){
+                InlogMenu inlogMenu = new InlogMenu(bib);
+                inlogMenu.inlogMenu();
+            } else if(keuze==6){
+                System.exit(0);
+            } else {
+                System.out.println("Gelieve een geldige keuze in te geven");
+                showMenu();
             }
         }
     }

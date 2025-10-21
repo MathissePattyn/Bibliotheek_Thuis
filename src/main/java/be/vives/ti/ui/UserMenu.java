@@ -40,4 +40,16 @@ public abstract class UserMenu {
         String isbn = scanner.nextLine();
         bib.addBoekViaIsbn(isbn);
     }
+
+    public void verwijderBoek(){
+        System.out.println("Gelieve een Isbn nummer in te geven");
+        String isbn = scanner.nextLine();
+        bib.verwijderBoekViaISBN(isbn);
+    }
+
+    public void getDetailsBoek(){
+        System.out.println("Gelieve een isbn nummer in te geven");
+        String isbn = scanner.nextLine();
+        System.out.println(bib.getDetailsVanBoek(isbn));
+    }
 }
