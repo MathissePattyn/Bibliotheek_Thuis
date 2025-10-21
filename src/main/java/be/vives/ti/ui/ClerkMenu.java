@@ -8,32 +8,39 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ClerkMenu extends UserMenu{
-    public ClerkMenu(Clerk clerk, Bibliotheek bib) {
-        super(clerk, bib);
+    public ClerkMenu(Clerk clerk, Bibliotheek bib, Scanner scanner) {
+        super(clerk, bib, scanner);
     }
 
     @Override
     public void showMenu() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("--Keuze menu van de Clerk--");
         int keuze = 0;
-        int idKeuzes = 1;
-        ArrayList<Clerk> winkelbedienden = bib.getWinkelBedienden();
-        if(winkelbedienden.size()==0) {
-            System.out.println("1. Gebruiker Aanmaken");
-            System.out.println("2. Vorige menu");
-            System.out.println("3. Afsluiten");
+        while(keuze ==0) {
+            System.out.println("--Menu van " + super.getUser().getNaam() + "--");
+            System.out.println("1. Toon alle aanwezige boeken");
+            System.out.println("2. Voeg een boek toe obv isbn");
+            System.out.println("3. Verwijder een boek obv isbn");
+            System.out.println("4. Zoek een boek obv isbn");
+            System.out.println("5. Vorige menu");
+            System.out.println("6. Afsluiten");
             keuze = scanner.nextInt();
-        } else{
-            for (int i = 0; i < winkelbedienden.size(); i++) {
-                System.out.println(idKeuzes + ". " + winkelbedienden.get(i).getNaam());
-                idKeuzes++;
+            scanner.nextLine();
+
+
+
+            if (keuze == 1){
+                System.out.println(bib.getDetailsLijstVanBoeken());
+                showMenu();
+            } else if(keuze == 2){
+                System.out.println("Gelieve een isbn in te geven");
+                String isbn = scanner.nextLine();
+                bib.addBoekViaIsbn(isbn);
+                showMenu();
+            } else if(keuze == 3){
+//                verwijderBoek(bib);
+            } else if(keuze == 4){
+//                zoekBoek(bib);
             }
-            System.out.println(idKeuzes + ". Vorige menu");
-            idKeuzes++;
-            System.out.println(idKeuzes + ". Afsluiten");
-            keuze = scanner.nextInt();
         }
-    }
     }
 }

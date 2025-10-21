@@ -4,10 +4,10 @@ import be.vives.ti.service.Bibliotheek;
 import be.vives.ti.ui.Menu;
 
 public class Main {
-    static void main() {
+    public static void main(String[] args) {
         Bibliotheek bib = new Bibliotheek();
         Menu menu = new Menu(bib);
-
-        menu.Start();
+        menu.Start(); // lowercase conventie
     }
 }
+

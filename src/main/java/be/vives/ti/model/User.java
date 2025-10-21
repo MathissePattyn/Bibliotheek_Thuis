@@ -5,14 +5,12 @@ import be.vives.ti.service.Bibliotheek;
 import java.util.Scanner;
 
 public abstract class User {
-    protected Scanner scanner;
     private String naam;
     private int id;
     private String wachtwoord;
 
-    public User(String naam, Scanner scanner, int id, String wachtwoord) {
+    public User(String naam,int id, String wachtwoord) {
         this.naam = naam;
-        this.scanner = scanner;
         this.id = id;
         this.wachtwoord = wachtwoord;
     }
@@ -33,9 +31,9 @@ public abstract class User {
         return naam;
     }
 
-    public abstract void showMenu(Bibliotheek bib);
-
-    public abstract User maakUserAan(Bibliotheek bib);
+//    public abstract void showMenu(Bibliotheek bib);
+//
+//    public abstract User maakUserAan(Bibliotheek bib);
 }
 
 
