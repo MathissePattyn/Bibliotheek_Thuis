@@ -3,6 +3,7 @@ package be.vives.ti.ui;
 import be.vives.ti.model.User;
 import be.vives.ti.service.Bibliotheek;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public abstract class UserMenu {
@@ -33,4 +34,10 @@ public abstract class UserMenu {
     }
 
     public abstract void showMenu();
+
+    public void addBoek(){
+        System.out.println("Gelieve een Isbn nummer in te geven");
+        String isbn = scanner.nextLine();
+        bib.addBoekViaIsbn(isbn);
+    }
 }

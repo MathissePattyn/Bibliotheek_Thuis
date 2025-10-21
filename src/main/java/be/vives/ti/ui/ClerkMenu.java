@@ -32,9 +32,7 @@ public class ClerkMenu extends UserMenu{
                 System.out.println(bib.getDetailsLijstVanBoeken());
                 showMenu();
             } else if(keuze == 2){
-                System.out.println("Gelieve een isbn in te geven");
-                String isbn = scanner.nextLine();
-                bib.addBoekViaIsbn(isbn);
+                addBoek();
                 showMenu();
             } else if(keuze == 3){
 //                verwijderBoek(bib);
